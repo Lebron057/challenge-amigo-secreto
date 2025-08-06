@@ -10,10 +10,24 @@ function adicionarAmigo() {
         console.log(amigo);        
     }
 
+    document.getElementById('listaAmigos').innerHTML = '';
+
+    let cont = 0;
+
+    while (cont < amigo.length) {
+        exibirNaTela('listaAmigos', amigo[cont]);
+        cont++;
+    }
+
     limparCampo();
 }
 
 function limparCampo() {
-    nome = document.getElementById('amigo');
+    let nome = document.getElementById('amigo');
     nome.value = '';
+}
+
+function exibirNaTela(id, texto) {
+    let campo = document.getElementById(id);
+    campo.innerHTML += `<p>${texto}</p>`;
 }
